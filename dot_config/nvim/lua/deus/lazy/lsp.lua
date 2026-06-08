@@ -86,10 +86,8 @@ return {
     -- ===== root_dir helper (replacement for lspconfig.util.root_pattern) =====
     local function root_pattern(...)
       local patterns = { ... }
-      return function(fname)
-        local path = vim.fs.dirname(fname)
-        local found = vim.fs.find(patterns, { path = path, upward = true })[1]
-        return found and vim.fs.dirname(found) or vim.uv.cwd()
+      return function(bufnr, on_dir)
+        on_dir(vim.fs.root(bufnr, patterns) or vim.uv.cwd())
       end
     end
 
@@ -103,6 +101,7 @@ return {
         "rust_analyzer",
         "gopls",
         "clangd",
+        "cssls",
         "ts_ls",
         "biome",
         "jsonls",
@@ -135,6 +134,7 @@ return {
       "rust_analyzer",
       "gopls",
       "clangd",
+      "cssls",
       "ts_ls",
       "biome",
       "jsonls",
@@ -266,8 +266,27 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
+        { name = "path" },
       }, {
         { name = "buffer" },
+      }),
+    })
+
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline({
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            cmp.complete()
+          end
+        end, { "c" }),
+        ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+      }),
+      sources = cmp.config.sources({
+        { name = "path" },
+      }, {
+        { name = "cmdline" },
       }),
     })
 

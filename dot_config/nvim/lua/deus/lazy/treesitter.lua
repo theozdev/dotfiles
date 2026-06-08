@@ -5,6 +5,7 @@ return {
   config = function()
     local parsers = {
       "c",
+      "css",
       "go",
       "gomod",
       "gosum",

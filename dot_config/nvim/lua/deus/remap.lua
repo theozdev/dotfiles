@@ -11,6 +11,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "Y", "yy", { desc = "Yank line to system clipboard" })
 
 vim.keymap.set("n", "<leader>cc", ":cclose<CR>", { desc = "Close quickfix", silent = true })
 
@@ -76,12 +77,6 @@ vim.keymap.set("n", "<leader>rn", function()
 		end
 	end)
 end, { desc = "LSP: Rename symbol (empty input)" })
-
--- Ctrl+Shift+C to copy (yank)
-vim.keymap.set({ "x", "n", "i" }, "<M-c>", '"+y', { desc = "Copy to system clipboard" })
-
--- Ctrl+Shift+V to paste (put)
-vim.keymap.set({ "x", "n", "i" }, "<M-v>", '"+p', { desc = "Paste from system clipboard" })
 
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
 

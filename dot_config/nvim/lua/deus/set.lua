@@ -3,6 +3,7 @@ vim.opt.pumheight = 10
 vim.opt.pumwidth = 50
 vim.opt.pumborder = "rounded"
 vim.opt.winborder = "rounded"
+vim.opt.clipboard = "unnamedplus"
 
 
 vim.opt.laststatus = 2

@@ -2,7 +2,6 @@ require("deus.remap")
 require("deus.set")
 
 require("deus.lazy_init")
-require("deus.theme.ef_dreamish")
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
@@ -14,6 +13,13 @@ vim.filetype.add({
     mm = "objc",
     jsonc = "jsonc"
   }
+})
+
+autocmd("FileType", {
+  group = deusGroup,
+  callback = function()
+    vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+  end,
 })
 
 vim.api.nvim_create_autocmd("BufRead", {
