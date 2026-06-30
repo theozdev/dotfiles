@@ -1,7 +1,12 @@
 theme = GitHub Dark Default
 
-font-family = JetBrainsMono Nerd Font
-font-size = 18
+# font-family = JetBrainsMono Nerd Font
+# font-family = AnonymicePro Nerd Font
+# font-family = BlexMono Nerd Font
+# font-family = CaskaydiaMono Nerd Font
+font-family = UbuntuMono Nerd Font
+
+font-size = 24
 
 background-opacity = 1
 background-blur = true

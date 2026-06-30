@@ -15,6 +15,8 @@ alias ce='chezmoi edit'
 alias ca='chezmoi apply'
 alias ccd='chezmoi cd'
 alias cadd='chezmoi add'
+alias codex='CODEX_HOME=$HOME/.codex /opt/homebrew/bin/codex'
+alias codex-personal='CODEX_HOME=$HOME/.codex_home /opt/homebrew/bin/codex'
 
 # NVM
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
